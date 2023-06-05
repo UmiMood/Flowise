@@ -70,8 +70,30 @@ function CodeReview() {
                         /> */}
                     {/* {console.log('loading || reviewCode?.length == 0', !loading || reviewCode?.length == 0)} */}
                     <ReactDiffViewer
-                        oldValue={JSON.stringify(oldJSON, undefined, 4)}
-                        newValue={JSON.stringify(newJSON, undefined, 4)}
+                        oldValue={`// Get user data
+const userData = getUserData(userId);
+// Transform user data
+const transformedData = transformUserData(userData);
+// Send data to server
+const response = sendDataToServer(transformedData);
+// Get response
+const responseData = response.data;`}
+                        newValue={`// Get user data and transform it
+const responseData = transformUserData(getUserData(userId))
+  // Send data to server
+  .then(sendDataToServer)
+  // Get response
+  .then(res => res.data);
+Explanation:
+This piece of code needs to be optimized because it is not following the best practices of the language. The old code is not using the concept of promises which is available through JavaScript. By using promises, the code can be made smaller and faster. Furthermore, the code should be written using clean code architecture principles, SOLID principles, Open/Closed principle, Liskov Substitution principle, Interface Segregation principle, Dependency Inversion Principle, DRY principles, KISS (Keep It Simple, Stupid) principles, Separation of Concerns principles, Code Smells principles, Test Driven Development principles, Refactoring principles, Design Patterns principles.
+Rewritten Code
+// Get user data and transform it
+const responseData = getUserData(userId)
+  .then(transformUserData)
+  // Send data to server
+  .then(sendDataToServer)
+  // Get response
+  .then(res => res.data);`}
                         splitView={true}
                         styles={newStyles}
                         leftTitle='Old Code'
