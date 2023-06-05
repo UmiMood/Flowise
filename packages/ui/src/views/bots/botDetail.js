@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { useSelector } from 'react-redux'
+import ScrumBot from './components/ScrumBot'
+import CodeReview from './components/CodeReview'
 
 // material-ui
 import { Grid, Box, Stack } from '@mui/material'
@@ -61,7 +63,7 @@ const Bot = () => {
     // }
 
     const goToBot = (selectedChatflow) => {
-        navigate(`/bot/${selectedChatflow.slug}`)
+        navigate(`/bots/${selectedChatflow.slug}`)
     }
 
     // useEffect(() => {
@@ -112,19 +114,8 @@ const Bot = () => {
 
     return (
         <MainCard sx={{ background: customization.isDarkMode ? theme.palette.common.black : '' }}>
-            <Stack flexDirection='row'>
-                <h1>Bot : {id}</h1>
-            </Stack>
-            <Grid container spacing={gridSpacing}>
-                {!isLoading &&
-                    getAllBotsApi.data &&
-                    getAllBotsApi.data.map((data, index) => (
-                        <Grid key={index} item lg={3} md={4} sm={6} xs={12}>
-                            <ItemCard onClick={() => goToBot(data)} data={data} />
-                        </Grid>
-                    ))}
-            </Grid>
-            <LoginDialog show={loginDialogOpen} dialogProps={loginDialogProps} onConfirm={onLoginClick} />
+            <h1>Bot : {id}</h1>
+            {id == 'scrum-bot' ? <ScrumBot /> : <CodeReview />}
         </MainCard>
     )
 }
