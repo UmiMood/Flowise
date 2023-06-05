@@ -29,7 +29,7 @@ import { IconPlus } from '@tabler/icons'
 
 // ==============================|| BOTS ||============================== //
 
-const Bots = () => {
+const Bot = () => {
     console.log('Bots component')
     let { id } = useParams()
     console.log('id: ', id)
@@ -60,8 +60,8 @@ const Bots = () => {
     //     navigate('/canvas')
     // }
 
-    const goToBot = (selectedBot) => {
-        navigate(`/bots/${selectedBot.slug}`)
+    const goToBot = (selectedChatflow) => {
+        navigate(`/bot/${selectedChatflow.slug}`)
     }
 
     // useEffect(() => {
@@ -113,7 +113,7 @@ const Bots = () => {
     return (
         <MainCard sx={{ background: customization.isDarkMode ? theme.palette.common.black : '' }}>
             <Stack flexDirection='row'>
-                <h1>Bots</h1>
+                <h1>Bot : {id}</h1>
             </Stack>
             <Grid container spacing={gridSpacing}>
                 {!isLoading &&
@@ -129,4 +129,4 @@ const Bots = () => {
     )
 }
 
-export default Bots
+export default Bot
