@@ -13,6 +13,9 @@ const Marketplaces = Loadable(lazy(() => import('views/marketplaces')))
 // apikey routing
 const APIKey = Loadable(lazy(() => import('views/apikey')))
 
+// bots routing
+const Bots = Loadable(lazy(() => import('views/bots')))
+
 // ==============================|| MAIN ROUTING ||============================== //
 
 const MainRoutes = {
@@ -21,7 +24,11 @@ const MainRoutes = {
     children: [
         {
             path: '/',
-            element: <Chatflows />
+            element: <Bots />
+        },
+        {
+            path: '/bots',
+            element: <Bots />
         },
         {
             path: '/chatflows',

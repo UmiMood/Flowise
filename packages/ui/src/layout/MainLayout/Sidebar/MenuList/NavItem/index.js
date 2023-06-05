@@ -88,7 +88,7 @@ const NavItem = ({ item, level, navType, onClick, onUploadFile }) => {
                 dispatch({ type: MENU_OPEN, id: item.id })
             }
             if (!document.location.pathname.toString().split('/')[1]) {
-                itemHandler('chatflows')
+                itemHandler('bots')
             }
         }
 

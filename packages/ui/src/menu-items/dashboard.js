@@ -12,6 +12,14 @@ const dashboard = {
     type: 'group',
     children: [
         {
+            id: 'bots',
+            title: 'Bots',
+            type: 'item',
+            url: '/bots',
+            icon: icons.IconHierarchy,
+            breadcrumbs: true
+        },
+        {
             id: 'chatflows',
             title: 'Chatflows',
             type: 'item',
